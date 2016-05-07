@@ -1,5 +1,5 @@
 from flask import Flask
-
+import time
 import LED
 
 app = Flask(__name__)
@@ -11,7 +11,17 @@ def index():
 @app.route('/scan', methods = ['POST'])
 def scan():
 	print("Scan!!!")
-	LED.rainbow()
+
+#        for i in range(1,30):
+#            time.sleep(0.1)
+#            print(i)
+	time.sleep(0.5)
+	try:
+            LED.rainbow()
+	finally:            
+            print("rainbow on LED")
+    
+            
 	return 'Scanned!!!'
 
 @app.route('/prynt', methods = ['POST'])

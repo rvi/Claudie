@@ -5,11 +5,12 @@ r=27
 g=22
 b=17
 white=[1,1,1]
+yellow=[1,1,0]
 
 Freq=100
 speed=.0005
 
-def color(R,G,B,on_time,RED, GREEN, BLUE):
+def fade(R,G,B,on_time,RED, GREEN, BLUE):
         RED.ChangeDutyCycle(R)
         GREEN.ChangeDutyCycle(G)
         BLUE.ChangeDutyCycle(B)
@@ -19,9 +20,7 @@ def color(R,G,B,on_time,RED, GREEN, BLUE):
         GREEN.ChangeDutyCycle(1)
         BLUE.ChangeDutyCycle(1)
 
-
 def initializeGPIO():
-
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
@@ -32,7 +31,6 @@ def initializeGPIO():
         GPIO.output(r,GPIO.LOW)
         GPIO.output(g,GPIO.LOW)
         GPIO.output(b,GPIO.LOW)
-
 
         RED = GPIO.PWM(r,Freq)
         GREEN = GPIO.PWM(g,Freq)
@@ -51,21 +49,22 @@ def rainbow():
                         for z in range(1,-1,-1):
                                 print(x,y,z)
                                 for i in range(100,-1,-1):
-                                        color((x*i),(y*i),(z*i),speed,RED, GREEN, BLUE)
+                                        fade((x*i),(y*i),(z*i),speed,RED, GREEN, BLUE)
                                 for i in range(0,101,1):
-                                        color((x*i),(y*i),(z*i),speed,RED, GREEN, BLUE)
-
+                                        fade((x*i),(y*i),(z*i),speed,RED, GREEN, BLUE)
         GPIO.cleanup()
+        return
 
-def shade(x,y,z):
+def shade(color):
         speed=.005
-	print("WHITE")
 	RED, GREEN, BLUE = initializeGPIO()
-        print(x,y,z)
+        print(color[0],color[1],color[2])
         for i in range(100,-1,-1):
-                color((x*i),(y*i),(z*i),speed,RED, GREEN, BLUE)
+                fade((color[0]*i),(color[1]*i),(color[2]*i),speed,RED,GREEN,BLUE)
 
         GPIO.cleanup()
+        return
 
 
-shade(white[0],white[1],white[2])                                  
+shade(white)                                
+
