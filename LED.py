@@ -39,11 +39,17 @@ def initializeGPIO():
         RED.start(100)
         GREEN.start(100)
         BLUE.start(100)
+
+        time.sleep(2)
+
+        RED.ChangeDutyCycle(0)
+        GREEN.ChangeDutyCycle(0)
+        BLUE.ChangeDutyCycle(0)
+
         return (RED, GREEN, BLUE)
         
 def rainbow():
 	print("RAINBOW")
-	RED, GREEN, BLUE = initializeGPIO()
         for x in range(1,-1,-1):
                 for y in range(1,-1,-1):
                         for z in range(1,-1,-1):
@@ -52,7 +58,9 @@ def rainbow():
                                         fade((x*i),(y*i),(z*i),speed,RED, GREEN, BLUE)
                                 for i in range(0,101,1):
                                         fade((x*i),(y*i),(z*i),speed,RED, GREEN, BLUE)
-        GPIO.cleanup()
+	RED.ChangeDutyCycle(0)
+	GREEN.ChangeDutyCycle(0)
+	BLUE.ChangeDutyCycle(0)
         return
 
 def shade(color):
@@ -65,6 +73,14 @@ def shade(color):
         GPIO.cleanup()
         return
 
+def green():
 
-shade(white)                                
+	GPIO.output(r, GPIO.LOW)
+	GPIO.output(g, GPIO.HIGH)
+	GPIO.output(b, GPIO.LOW)
 
+	time.sleep(2)
+
+	GPIO.output(g, GPIO.LOW)
+	
+RED, GREEN, BLUE = initializeGPIO()

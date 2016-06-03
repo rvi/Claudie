@@ -11,24 +11,16 @@ def index():
 @app.route('/scan', methods = ['POST'])
 def scan():
 	print("Scan!!!")
-
-#        for i in range(1,30):
-#            time.sleep(0.1)
-#            print(i)
 	time.sleep(0.5)
-	try:
-            LED.rainbow()
-	finally:            
-            print("rainbow on LED")
-    
-            
-	return 'Scanned!!!'
+     	LED.rainbow()
+	return 'Scanned!!'
 
 @app.route('/prynt', methods = ['POST'])
 def prynt():
 	print("Prynt a picture!!")
-
-	return 'Prynt a picture'
+        time.sleep(0.5)
+	LED.green()
+	return 'Prynt !!'
 
 
 @app.route('/cash', methods = ['POST'])
@@ -46,4 +38,4 @@ def new_account():
 
 	
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=False, host='0.0.0.0')
