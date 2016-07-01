@@ -13,7 +13,15 @@ On your Raspberry Pi:
 pip install RPi.GPIO
 pip install Flask
 git clone git@github.com:prynt/Claudie.git
+
+sudo apt-get update
+sudo apt-get install build-essential python-dev git scons swig
 git clone git@github.com:prynt/rpi_ws281x.git
-cd Claudie
+cd rpi_ws281x
+scons
+cd python
+sudo python setup.py install
+
+cd ../../Claudie
 python app.py
 ```
