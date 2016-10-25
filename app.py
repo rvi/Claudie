@@ -2,6 +2,12 @@ from flask import Flask
 import time
 import LED
 
+import sys
+
+import subprocess
+
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -12,14 +18,16 @@ def index():
 def scan():
 	print("Scan!!!")
 	time.sleep(0.5)
-     	LED.rainbow()
+     	#LED.rainbow()
+	subprocess.call(['sudo', sys.executable, '/home/pi/Desktop/rpi_ws281x/python/examples/storm.py'])
 	return 'Scanned!!'
 
 @app.route('/prynt', methods = ['POST'])
 def prynt():
 	print("Prynt a picture!!")
         time.sleep(0.5)
-	LED.green()
+	#LED.green()
+	subprocess.call(['sudo', sys.executable, '/home/pi/Desktop/rpi_ws281x/python/examples/rainbow.py'])
 	return 'Prynt !!'
 
 
