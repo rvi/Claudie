@@ -27,7 +27,7 @@ def prynt():
 	print("Prynt a picture!!")
         time.sleep(0.5)
 	#LED.green()
-	subprocess.call(['sudo', sys.executable, '/home/pi/Desktop/rpi_ws281x/python/examples/rainbow.py'])
+	subprocess.call(['sudo', sys.executable, '/home/pi/Desktop/rpi_ws281x/python/examples/whiteStorm.py'])
 	return 'Prynt !!'
 
 
