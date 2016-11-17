@@ -34,14 +34,14 @@ def prynt():
 @app.route('/cash', methods = ['POST'])
 def cash():
 	print("Yeah baby $$ !!")
-
+        subprocess.call(['sudo', sys.executable, '/home/pi/Desktop/rpi_ws281x/python/examples/goldStorm.py'])
 	return 'Yeaaah baby !!! $$$$'
 
 
 @app.route('/new_account', methods = ['POST'])
 def new_account():
 	print("create new account")
-	
+	subprocess.call(['sudo', sys.executable, '/home/pi/Desktop/rpi_ws281x/python/examples/greenStorm.py'])
 	return 'Did create new account!!'
 
 	
