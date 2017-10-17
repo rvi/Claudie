@@ -1,9 +1,10 @@
 # Claudie
 Claudie is a :cloud: in our office that :zap: every time someone Prynt, scan a picture of interact with our social networks.
 
-We started this project on a creativity day, which happens once a month.
+We use a Raspberry Pi to light our LEDs.
 
-We use a Raspberry Pi to light our LEDs. This project is still in early stage.
+A video of the final project is visible on [our Facebook page](https://www.facebook.com/iamprynt/videos/1535504956468942/).
+
 
 
 ### How to run it
