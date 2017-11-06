@@ -13,11 +13,11 @@ On your Raspberry Pi:
 ```
 pip install RPi.GPIO
 pip install Flask
-git clone git@github.com:prynt/Claudie.git
+git clone git@github.com:rvi/Claudie.git
 
 sudo apt-get update
 sudo apt-get install build-essential python-dev git scons swig
-git clone git@github.com:prynt/rpi_ws281x.git
+git clone git@github.com:rvi/rpi_ws281x.git
 cd rpi_ws281x
 scons
 cd python
